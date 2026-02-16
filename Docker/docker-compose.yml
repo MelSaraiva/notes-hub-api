@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: notes-hub-postgres
+    environment:
+      POSTGRES_DB: notes_hub
+      POSTGRES_USER: notes_hub_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - notes_hub_pgdata:/var/lib/postgresql/data
+
+volumes:
+  notes_hub_pgdata:
